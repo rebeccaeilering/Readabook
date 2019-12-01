@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>BookAdd</h1>
+      <form name="submit-to-sheets">
+        <h2>Add A Book</h2>
+        <label for="title">Title of book</label>
+        <input name="title" type="text" required>
+        <label for="author">Author of book</label>
+        <input name="author" type="text" required>
+        <label for="type">Type of book</label>
+        <input name="type" type="text" required>
+        <label for="rate">Did I like the book</label>
+        <input name="rate" type="text" required>
+        <button type="submit">Add</button>
+      </form>
+    </header>
+    <main>
+      <section class="content">
+        <h2>Recent books I've read</h2>
+        <div class="grid-wrapper">
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>

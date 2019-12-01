@@ -1,0 +1,114 @@
+:root {
+  --bgprimary: #202343;
+  --bgsecondary: #3e4377;
+  --primaryaccent: #fd367e;
+  --secondaryaccent: #fca92d;
+  --primarybutton: var(--secondaryaccent);
+  --primarybuttonhover: #fcb64e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bgprimary);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  border-left: 4px solid var(--primaryaccent);
+  padding-left: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 960px) {
+  .wrapper {
+    display: flex;
+    height: 100vh;
+  }
+}
+
+header {
+  background-color: var(--bgsecondary);
+  padding: 20px;
+}
+
+@media screen and (min-width: 960px) {
+  header {
+    border-right: 2px solid var(--primaryaccent);
+    width: 400px;
+    height: 100vh;
+  }
+}
+
+form {
+  padding: 20px 0;
+}
+
+main {
+  width: 100%;
+}
+
+.content {
+  display: block;
+  padding: 20px;
+}
+
+.content h2 {
+  margin-bottom: 25px;
+}
+
+label,
+input,
+button[type="submit"],
+select {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+
+label,
+select {
+  margin-bottom: 7px;
+
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 5px 4px;
+}
+
+button[type="submit"] {
+  display: block;
+  background-color: var(--primarybutton);
+  color: #000;
+  padding: 10px;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: var(--primarybuttonhover);
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 25px;
+}
+
+.grid-wrapper article {
+  background-color: var(--bgsecondary);
+  padding: 20px;
+  border-left: 5px solid var(--primaryaccent);
+}
