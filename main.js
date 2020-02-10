@@ -18,6 +18,7 @@ function init() {
       data.forEach(function (item) {
         document.querySelector(".grid-wrapper").innerHTML += `<article><h3>${item.title}</h3><div>Author: ${item.author}</div><div>Type of book: ${item.type}</div><div>Did I like it: ${item.rate}</div></article>`;
       });
+      document.getElementById('count').innerHTML += ' <span>' + data.length + '</span> books read';
     },
     simpleSheet: true 
   })
