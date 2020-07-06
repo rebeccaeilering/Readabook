@@ -1,15 +1,18 @@
+
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwIy9oCO2eOYWz5iDYvNjp95yenvgTzHzfM59j_xQsX9dXlSqQV/exec'
 const form = document.forms['submit-to-sheets']
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(response => alert('Success!', response))
-    .catch(error => console.error('Error!', error.message))
-})
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => alert('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  });
+};
 
 function init() {
   Tabletop.init( { 
@@ -23,4 +26,5 @@ function init() {
     simpleSheet: true 
   })
  }
-window.addEventListener('DOMContentLoaded', init)
+
+window.addEventListener('DOMContentLoaded', init);
