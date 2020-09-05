@@ -19,9 +19,18 @@ function init() {
     key: 'https://docs.google.com/spreadsheets/d/1nov8X6QtzfL_Z-8fs1Z7VX4VRmJb_AOXpUrakutYfWo/pubhtml',
     callback: function(data) {
       data.forEach(function (item) {
-        document.querySelector(".grid-wrapper").innerHTML += `<article><h3>${item.title}</h3><div>Author: ${item.author}</div><div>Type of book: ${item.type}</div><div>Did I like it: ${item.rate}</div></article>`;
+        document.querySelector(".grid-wrapper").innerHTML += `<article><h3>${item.title}</h3><div>Author: ${item.author}</div><div>Type of book: ${item.type}</div><div>Did I like it: <span class="rate">${item.rate}</span></div></article>`;
       });
       document.getElementById('count').innerHTML += ' <span>' + data.length + '</span> books read';
+
+      const rates = document.querySelectorAll('.rate');
+
+      rates.forEach(function(rate, i) {
+        if (rate.innerText === 'yes') {
+          rate.closest('article').classList.add('thumbup');
+        }
+      });
+
     },
     simpleSheet: true 
   })
