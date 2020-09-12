@@ -28,6 +28,10 @@ function init() {
       rates.forEach(function(rate, i) {
         if (rate.innerText === 'yes') {
           rate.closest('article').classList.add('thumbup');
+        } else if (rate.innerText === 'no') {
+          rate.closest('article').classList.add('thumbdown');
+        } else if (rate.innerText === 'meh') {
+          rate.closest('article').classList.add('meh');
         }
       });
 

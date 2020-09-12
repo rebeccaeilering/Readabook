@@ -149,6 +149,17 @@ button[type="submit"]:focus {
   color: var(--secondaryaccent);
 }
 
+.grid-wrapper article.thumbdown:before {
+  content: '\f164';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color:#ce1a1a;
+  transform: rotate(180deg);
+}
+
 .add-book {
   display: flex;
   justify-content: center;
