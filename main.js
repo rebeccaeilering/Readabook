@@ -23,6 +23,36 @@ function init() {
       });
       document.getElementById('count').innerHTML += ' <span>' + data.length + '</span> books read';
 
+      let genderArray = [];
+      for (item of data) {
+        const genderName = item.sex;
+        genderArray.push(genderName);
+      };
+      
+      const authorSex = document.querySelector('.author-sex');
+      const countF = genderArray.filter(sex => sex === 'female').length;
+      const countM = genderArray.filter(sex => sex === 'male').length;
+
+      function sexFemale() {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'female');
+        el.textContent = `Female: ${countF}`;
+        authorSex.appendChild(el);
+      }
+      sexFemale();
+
+      function sexMale() {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'male');
+        el.textContent = `Male: ${countM}`;
+        authorSex.appendChild(el);
+      }
+      sexMale();
+
+
+
+
+
       const rates = document.querySelectorAll('.rate');
 
       rates.forEach(function(rate, i) {
@@ -35,9 +65,9 @@ function init() {
         }
       });
 
-      const Types = document.querySelectorAll('.type');
+      const types = document.querySelectorAll('.type');
       
-      Types.forEach(function(type, i) {
+      types.forEach(function(type, i) {
         if (type.innerText === 'fiction') {
           type.closest('article').classList.add('type-fiction');
         } else if (type.innerText === 'non-fiction') {
