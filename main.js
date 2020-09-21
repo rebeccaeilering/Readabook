@@ -34,24 +34,63 @@ function init() {
       const countM = genderArray.filter(sex => sex === 'male').length;
 
       function sexFemale() {
+        const percentLike = Math.round(100 / data.length * countF);
         const el = document.createElement('div');
         el.setAttribute('class', 'female');
-        el.textContent = `Female: ${countF}`;
+        el.innerHTML = `<span class="bar"></span><span>Female: ${countF} (${percentLike}%)</span>`;
         authorSex.appendChild(el);
+        document.querySelector('.female .bar').style.width = `${percentLike}%`;
+
       }
       sexFemale();
 
       function sexMale() {
+        const percentLike = Math.round(100 / data.length * countM);
         const el = document.createElement('div');
         el.setAttribute('class', 'male');
-        el.textContent = `Male: ${countM}`;
+        el.innerHTML = `<span class="bar"></span><span>Male: ${countM} (${percentLike}%)</span>`;
         authorSex.appendChild(el);
+        document.querySelector('.male .bar').style.width = `${percentLike}%`;
+
       }
       sexMale();
 
 
+      let bookTypeArray = [];
+      for (item of data) {
+        const typeName = item.type;
+        bookTypeArray.push(typeName);
+        console.lgo
+      };
 
+      const bookType = document.querySelector('.book-type');
+      const countFiction = bookTypeArray.filter(type => type === 'fiction').length;
+      const countNonFiction = bookTypeArray.filter(type => type === 'non-fiction').length;
+      const countEssay = bookTypeArray.filter(type => type === 'essays').length;
+   
+      function typeFiction() {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'fiction');
+        el.textContent = `Fiction: ${countFiction}`;
+        bookType.appendChild(el);
+      }
+      typeFiction();
 
+      function typeNonFiction() {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'non-fiction');
+        el.textContent = `Non-Fiction: ${countNonFiction}`;
+        bookType.appendChild(el);
+      }
+      typeNonFiction();
+
+      function typeEssay() {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'essay');
+        el.textContent = `Essays: ${countEssay}`;
+        bookType.appendChild(el);
+      }
+      typeEssay();
 
       const rates = document.querySelectorAll('.rate');
 
@@ -60,71 +99,44 @@ function init() {
           rate.closest('article').classList.add('thumbup');
         } else if (rate.innerText === 'no') {
           rate.closest('article').classList.add('thumbdown');
-        } else if (rate.innerText === 'meh') {
-          rate.closest('article').classList.add('meh');
-        }
+        } 
       });
 
-      const types = document.querySelectorAll('.type');
-      
-      types.forEach(function(type, i) {
-        if (type.innerText === 'fiction') {
-          type.closest('article').classList.add('type-fiction');
-        } else if (type.innerText === 'non-fiction') {
-          type.closest('article').classList.add('type-non-fiction');
-        } else if(type.innerText === 'essays') {
-          type.closest('article').classList.add('type-essay');
-        }
-      });
-
-      const bookType = document.querySelector('.book-type');
-
-      function typeFiction() {
-        const fiction = document.querySelectorAll('.type-fiction');    
-        const el = document.createElement('div');
-        el.setAttribute('class', 'fiction');
-        el.textContent = `Fiction: ${fiction.length}`;
-        bookType.appendChild(el);
-      }
-      typeFiction();
-
-      function typeNonFiction() {
-        const nonFiction = document.querySelectorAll('.type-non-fiction');    
-        const el = document.createElement('div');
-        el.setAttribute('class', 'non-fiction');
-        el.textContent = `Non-Fiction: ${nonFiction.length}`;
-        bookType.appendChild(el);
-      }
-      typeNonFiction();
-
-      function typeEssay() {
-        const essay = document.querySelectorAll('.type-essay');    
-        const el = document.createElement('div');
-        el.setAttribute('class', 'essay');
-        el.textContent = `Essay: ${essay.length}`;
-        bookType.appendChild(el);
-      }
-      typeEssay();
+      let ratingArray = [];
+      for (item of data) {
+        const rateName = item.rate;
+        ratingArray.push(rateName);
+      };
 
       const bookRating = document.querySelector('.book-rating');
+      const countLike = ratingArray.filter(rate => rate === 'yes').length;
+      const countDislike = ratingArray.filter(rate => rate === 'no').length;
 
       function likedBook() {
-        const thumbUp = document.querySelectorAll('.thumbup');    
+        const percentLike = Math.round(100 / data.length * countLike);
         const el = document.createElement('div');
         el.setAttribute('class', 'like');
-        el.textContent = `Like: ${thumbUp.length}`;
+        el.innerHTML = `<span class="bar"></span><span>Like: ${countLike} (${percentLike}%)</span>`;
         bookRating.appendChild(el);
+        document.querySelector('.like .bar').style.width = `${percentLike}%`;
       }
       likedBook();
 
       function dislikedBook() {
-        const thumbDown = document.querySelectorAll('.thumbdown');   
+        const percentDisLike = Math.round(100 / data.length * countDislike);
         const el = document.createElement('div');
         el.setAttribute('class', 'dislike');
-        el.textContent = `Dislike: ${thumbDown.length}`;
+        el.innerHTML = `<span class="bar"></span><span>Dislike: ${countDislike} (${percentDisLike}%)</span>`;
         bookRating.appendChild(el);
+        document.querySelector('.dislike .bar').style.width = `${percentDisLike}%`;
       }
       dislikedBook()
+
+    
+
+
+
+
     },
     simpleSheet: true 
   })

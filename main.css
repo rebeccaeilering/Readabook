@@ -177,3 +177,31 @@ button[type="submit"]:focus {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.bar {
+  display: block;
+  height: 30px;
+}
+
+.like,
+.dislike,
+.male,
+.female {
+  margin-bottom: 10px;;
+}
+
+.like .bar {
+  background-color: var(--secondaryaccent);
+}
+
+.dislike .bar {
+  background-color: #ce1a1a;
+}
+
+.female .bar {
+  background-color: #ed8e9e;
+}
+
+.male .bar {
+  background-color: #5189f0;
+}
