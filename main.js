@@ -69,26 +69,35 @@ function init() {
       const countEssay = bookTypeArray.filter(type => type === 'essays').length;
    
       function typeFiction() {
+        const percentFiction = Math.round(100 / data.length * countFiction);
         const el = document.createElement('div');
         el.setAttribute('class', 'fiction');
-        el.textContent = `Fiction: ${countFiction}`;
+        el.innerHTML = `<span class="bar"></span><span>Fiction: ${countFiction} (${percentFiction}%)</span>`;
         bookType.appendChild(el);
+        document.querySelector('.fiction .bar').style.width = `${percentFiction}%`;
+
       }
       typeFiction();
 
       function typeNonFiction() {
+        const percentNonFiction = Math.round(100 / data.length * countNonFiction);
         const el = document.createElement('div');
         el.setAttribute('class', 'non-fiction');
-        el.textContent = `Non-Fiction: ${countNonFiction}`;
+        el.innerHTML = `<span class="bar"></span><span>Non-Fiction: ${countNonFiction} (${percentNonFiction}%)</span>`;
         bookType.appendChild(el);
+        document.querySelector('.non-fiction .bar').style.width = `${percentNonFiction}%`;
+
       }
       typeNonFiction();
 
       function typeEssay() {
+        const percentEssay = Math.round(100 / data.length * countEssay);
         const el = document.createElement('div');
         el.setAttribute('class', 'essay');
-        el.textContent = `Essays: ${countEssay}`;
+        el.innerHTML = `<span class="bar"></span><span>Essays: ${countEssay} (${percentEssay}%)</span>`;
         bookType.appendChild(el);
+        document.querySelector('.essay .bar').style.width = `${percentEssay}%`;
+
       }
       typeEssay();
 

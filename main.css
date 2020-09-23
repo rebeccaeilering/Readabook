@@ -186,7 +186,10 @@ button[type="submit"]:focus {
 .like,
 .dislike,
 .male,
-.female {
+.female,
+.fiction,
+.non-fiction,
+.essay {
   margin-bottom: 10px;;
 }
 
@@ -204,4 +207,10 @@ button[type="submit"]:focus {
 
 .male .bar {
   background-color: #5189f0;
+}
+
+.fiction .bar,
+.non-fiction .bar,
+.essay .bar {
+  background-color: var(--primaryaccent);
 }
