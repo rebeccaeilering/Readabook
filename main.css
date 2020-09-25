@@ -49,7 +49,6 @@ header {
 
 @media screen and (min-width: 960px) {
   header {
-    border-right: 2px solid var(--primaryaccent);
     width: 400px;
     min-height: 100vh;
   }
@@ -92,6 +91,7 @@ input {
   padding: 5px 4px;
 }
 
+.btn,
 button[type="submit"] {
   display: block;
   background-color: var(--primarybutton);
@@ -102,9 +102,17 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+.btn:hover,
+.btn:focus,
 button[type="submit"]:hover,
 button[type="submit"]:focus {
   background-color: var(--primarybuttonhover);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
 }
 
 .content-header {
@@ -193,12 +201,16 @@ button[type="submit"]:focus {
   margin-bottom: 10px;;
 }
 
+.bar {
+  margin-bottom: 3px;
+}
+
 .like .bar {
-  background-color: var(--secondaryaccent);
+  background-color: #5dbf94;
 }
 
 .dislike .bar {
-  background-color: #ce1a1a;
+  background-color: #eb5959;
 }
 
 .female .bar {
@@ -213,4 +225,10 @@ button[type="submit"]:focus {
 .non-fiction .bar,
 .essay .bar {
   background-color: var(--primaryaccent);
+}
+
+.about {
+  padding-bottom: 25px;
+  margin-bottom: 20px;
+  border-bottom:2px solid var(--bgprimary);
 }
