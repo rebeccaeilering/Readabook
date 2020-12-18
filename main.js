@@ -25,7 +25,7 @@ function init() {
 
       let genderArray = [];
       for (item of data) {
-        const genderName = item.sex;
+        const genderName = item.sex.toLowerCase();
         genderArray.push(genderName);
       };
       
@@ -58,7 +58,7 @@ function init() {
 
       let bookTypeArray = [];
       for (item of data) {
-        const typeName = item.type;
+        const typeName = item.type.toLowerCase();
         bookTypeArray.push(typeName);
         console.lgo
       };
