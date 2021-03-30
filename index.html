@@ -22,35 +22,35 @@
         <p>I've had a bad habit of buying books and then letting them sit on my bookshelf to collect dust. By sticking
           to this habit, I have been able to read more books.</p>
       </section>
-      <section class="stats">
-        <button class="btn" id="openStats">See Stats</button>
-        <div id="statsModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Stats</h2>
-            <div class="book-rating">
-              <h3>Book Rating</h3>
-            </div>
-            <div class="book-type">
-              <h3>Type of Book</h3>
-            </div>
-            <div class="author-sex">
-              <h3>Sex of Author</h3>
-            </div>
-          </div>
-        </div>
-      </section>
     </header>
     <main>
       <section class="content">
         <div class="content-header">
           <h2 id="booksRead">Books I've Read</h2>
-          <div id="count" class="number-read"></div>
+          <div class="stats">
+            <button class="btn stats" id="openStats">See Stats</button>
+            <div id="count" class="number-read"></div>
+          </div>
         </div>
         <div class="grid-wrapper">
         </div>
       </section>
     </main>
+  </div>
+  <div id="statsModal" role="dialog" class="modal" tabindex="0">
+    <div class="modal-content">
+      <button class="close" aria-label="Close Stats Modal">&times;</button>
+      <h2>Stats</h2>
+      <div class="book-rating">
+        <h3>Book Rating</h3>
+      </div>
+      <div class="book-type">
+        <h3>Type of Book</h3>
+      </div>
+      <div class="author-sex">
+        <h3>Sex of Author</h3>
+      </div>
+    </div>
   </div>
   <script src="main.js"></script>
 </body>
