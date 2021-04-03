@@ -236,6 +236,13 @@ button[type="submit"]:focus {
   background-color: var(--primaryaccent);
 }
 
+.stat {
+  background-color: var(--bgsecondary);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--primaryaccent);
+}
+
 .about {
   padding-bottom: 25px;
   margin-bottom: 20px;
@@ -278,4 +285,17 @@ button[type="submit"]:focus {
   color: var(--primarybuttonhover);
   text-decoration: none;
   cursor: pointer;
+}
+
+.two-column {
+  display: flex;
+}
+
+.two-column .col {
+  width: calc(50% - 10px);
+  margin-left: 20px;
+}
+
+.two-column .col:first-of-type {
+  margin-left: 0;
 }
