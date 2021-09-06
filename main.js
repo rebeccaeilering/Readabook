@@ -15,9 +15,12 @@ if (form) {
 };
 
 function init() {
-  Tabletop.init( { 
-    key: 'https://docs.google.com/spreadsheets/d/1nov8X6QtzfL_Z-8fs1Z7VX4VRmJb_AOXpUrakutYfWo/pubhtml',
-    callback: function(data) {
+  Papa.parse('https://docs.google.com/spreadsheets/d/1nov8X6QtzfL_Z-8fs1Z7VX4VRmJb_AOXpUrakutYfWo/pub?output=csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+      var data = results.data
+      console.log(data);
       data.forEach(function (item) {
         document.querySelector(".grid-wrapper").innerHTML += `<article><h3>${item.title}</h3><div>Author: ${item.author}</div><div>Type of book: <span class="type">${item.type}</span></div><div>Genre: ${item.genre}</div><div>Did I like it: <span class="rate">${item.rate}</span></div></article>`;
       });
@@ -55,12 +58,10 @@ function init() {
       }
       sexMale();
 
-
       let bookTypeArray = [];
       for (item of data) {
         const typeName = item.type.toLowerCase();
         bookTypeArray.push(typeName);
-        console.lgo
       };
 
       const bookType = document.querySelector('.book-type');
@@ -139,17 +140,10 @@ function init() {
         bookRating.appendChild(el);
         document.querySelector('.dislike .bar').style.width = `${percentDisLike}%`;
       }
-      dislikedBook()
-
-    
-
-
-
-
-    },
-    simpleSheet: true 
-  })
- }
+      dislikedBook();
+    }
+  });
+};
 
 window.addEventListener('DOMContentLoaded', init);
 
